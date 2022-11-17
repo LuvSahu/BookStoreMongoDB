@@ -1,0 +1,10 @@
+D:\CFP BATCH\BookStoreMongoDB\BookStore\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.deps.json
+D:\CFP BATCH\BookStoreMongoDB\BookStore\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.dll
+D:\CFP BATCH\BookStoreMongoDB\BookStore\ModelLayer\bin\Debug\netcoreapp3.1\ModelLayer.pdb
+D:\CFP BATCH\BookStoreMongoDB\BookStore\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.csproj.AssemblyReference.cache
+D:\CFP BATCH\BookStoreMongoDB\BookStore\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\CFP BATCH\BookStoreMongoDB\BookStore\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.AssemblyInfoInputs.cache
+D:\CFP BATCH\BookStoreMongoDB\BookStore\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.AssemblyInfo.cs
+D:\CFP BATCH\BookStoreMongoDB\BookStore\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.csproj.CoreCompileInputs.cache
+D:\CFP BATCH\BookStoreMongoDB\BookStore\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.dll
+D:\CFP BATCH\BookStoreMongoDB\BookStore\ModelLayer\obj\Debug\netcoreapp3.1\ModelLayer.pdb

@@ -1,0 +1,15 @@
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.deps.json
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.dll
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.pdb
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\bin\Debug\netcoreapp3.1\ModelLayer.dll
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.dll
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.pdb
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\bin\Debug\netcoreapp3.1\ModelLayer.pdb
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.AssemblyReference.cache
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfoInputs.cache
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfo.cs
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CopyComplete
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.dll
+D:\CFP BATCH\BookStoreMongoDB\BookStore\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.pdb
