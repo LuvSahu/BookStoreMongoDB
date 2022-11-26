@@ -16,7 +16,7 @@ namespace RepositoryLayer.Repository
     {
       
 
-        private readonly IMongoCollection<AdminRegisterModel> User1;
+        private readonly IMongoCollection<AdminRegisterModel> Admin;
 
 
         private readonly IConfiguration configuration;
@@ -27,17 +27,17 @@ namespace RepositoryLayer.Repository
             var userlimit = new MongoClient(db.ConnectionString);
             var database = userlimit.GetDatabase(db.DatabaseName);
             
-            User1 = database.GetCollection<AdminRegisterModel>("User1");
+            Admin = database.GetCollection<AdminRegisterModel>("Admin");
         }
 
         public AdminRegisterModel Register(AdminRegisterModel register)
         {
             try
             {
-                var check = this.User1.AsQueryable().Where(x => x.adminemailID == register.adminemailID).SingleOrDefault();
+                var check = this.Admin.AsQueryable().Where(x => x.adminemailID == register.adminemailID).SingleOrDefault();
                 if (check == null)
                 {
-                    this.User1.InsertOne(register);
+                    this.Admin.InsertOne(register);
                     return register;
                 }
                 return null;
@@ -52,10 +52,10 @@ namespace RepositoryLayer.Repository
         {
             try
             {
-                var check = this.User1.AsQueryable().Where(x => x.adminemailID == login.adminemailID).SingleOrDefault();
+                var check = this.Admin.AsQueryable().Where(x => x.adminemailID == login.adminemailID).SingleOrDefault();
                 if (check != null)
                 {
-                    check = this.User1.AsQueryable().Where(x => x.password == login.password).SingleOrDefault();
+                    check = this.Admin.AsQueryable().Where(x => x.password == login.password).SingleOrDefault();
                     if (check != null)
                     {
                         

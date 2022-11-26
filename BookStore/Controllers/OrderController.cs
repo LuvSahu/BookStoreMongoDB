@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer;
@@ -18,6 +19,8 @@ namespace BookStore.Controllers
             this.orderBL = orderBL;
         }
 
+
+        [Authorize]
         [HttpPost]
         [Route("Addorder")]
         public IActionResult AddOrder(OrderModel order)
@@ -41,6 +44,7 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete]
         [Route("Cancleorder")]
         public IActionResult CancleOrder(string id)
@@ -63,6 +67,7 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet]
         [Route("Getorder")]
         public IActionResult GetOrder()

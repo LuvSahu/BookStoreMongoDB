@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer;
@@ -19,6 +20,7 @@ namespace BookStore.Controllers
             this.wishlistBL = wishlistBL;
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Addtowishlist")]
         public IActionResult AddToWishlist(WishlistModel wish)
@@ -42,6 +44,7 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete]
         [Route("Removefromwishlist")]
         public IActionResult RemoveWishlist(string id)
@@ -64,6 +67,7 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet]
         [Route("Getwishlist")]
         public IActionResult GetWishlist()

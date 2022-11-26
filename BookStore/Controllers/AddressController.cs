@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer;
@@ -18,7 +19,7 @@ namespace BookStore.Controllers
         {
             this.addressBL = addressBL;
         }
-
+        [Authorize]
         [HttpPost]
         [Route("Addaddress")]
         public IActionResult AddAddress(AddressModel add)
@@ -42,6 +43,7 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut]
         [Route("Updateaddress")]
         public IActionResult UpdateAddress(AddressModel edit, string id)
@@ -65,12 +67,14 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete]
         [Route("Deleteaddress")]
         public IActionResult DeleteAddress(string id)
         {
             try
             {
+                string userId = User.Claims.FirstOrDefault(e => e.Type == "UserId").Value;
                 var check = this.addressBL.DeleteAddress(id);
                 if (check != false)
                 {
@@ -87,12 +91,14 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet]
         [Route("Getalladdress")]
         public IActionResult GetallAddress()
         {
             try
             {
+                string userId = User.Claims.FirstOrDefault(e => e.Type == "UserId").Value;
                 IEnumerable<AddressModel> check = this.addressBL.GetallAddress();
                 if (check != null)
                 {
@@ -109,12 +115,14 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet]
         [Route("getbyaddresstype")]
         public IActionResult GetByAddressType(string addtypeId)
         {
             try
             {
+                string userId = User.Claims.FirstOrDefault(e => e.Type == "UserId").Value;
                 var check = this.addressBL.GetByAddressType(addtypeId);
                 if (check != null)
                 {

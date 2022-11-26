@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interface;
+using Microsoft.AspNetCore.Http;
 using ModelLayer;
 using RepositoryLayer.Interface;
 using System;
@@ -74,6 +75,18 @@ namespace BusinessLayer.Business
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+            }
+        }
+
+        public string UploadImage(string id, IFormFile img, string adminid)
+        {
+            try
+            {
+                return this.bookRL.UploadImage(id, img, adminid);
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

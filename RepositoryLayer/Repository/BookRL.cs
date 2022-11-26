@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using ModelLayer;
 using MongoDB.Driver;
@@ -18,9 +21,13 @@ namespace RepositoryLayer.Repository
 
         private readonly IConfiguration configuration;
 
-        public BookRL(IDBSetting db, IConfiguration configuration)
+        private readonly IConfiguration cloudinaryEntity;
+
+
+        public BookRL(IDBSetting db, IConfiguration configuration, IConfiguration cloudinaryEntity)
         {
             this.configuration = configuration;
+            this.cloudinaryEntity = cloudinaryEntity;
             var userlimit = new MongoClient(db.ConnectionString);
             var database = userlimit.GetDatabase(db.DatabaseName);
             Books = database.GetCollection<BookModel>("Books");
@@ -117,6 +124,38 @@ namespace RepositoryLayer.Repository
 
             return tokenHandler.WriteToken(token);
 
+        }
+
+        public string UploadImage(string id, IFormFile img, string adminid)
+        {
+            try
+            {
+                var result = this.Books.Find(x => x.bookID == id && x.adminID == adminid).SingleOrDefault();
+                if (result != null)
+                {
+                    Account cloudaccount = new Account(
+                         cloudinaryEntity["CloudinarySettings:cloudName"],
+                         cloudinaryEntity["CloudinarySettings:apiKey"],
+                         cloudinaryEntity["CloudinarySettings:apiSecret"]
+                         );
+
+                    Cloudinary cloudinary = new Cloudinary(cloudaccount);
+                    var uploadParams = new ImageUploadParams()
+                    {
+                        File = new FileDescription(img.FileName, img.OpenReadStream()),
+                    };
+                    var uploadResult = cloudinary.Upload(uploadParams);
+                    string imagePath = uploadResult.Url.ToString();
+                    result.bookimage = imagePath;
+                    this.Books.UpdateOne(x => x.bookID == id, Builders<BookModel>.Update.Set(x => x.bookimage, imagePath));
+                    return "Image upload SuccessFully";
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
     }

@@ -94,6 +94,30 @@ namespace BookStore.Controllers
         }
 
         [Authorize]
+        [HttpPut("UploadImage")]
+        public IActionResult UploadImage(string id, IFormFile img)
+        {
+            try
+            {
+                string adminid = User.Claims.FirstOrDefault(e => e.Type == "AdminId").Value;
+                var result = bookBL.UploadImage(id, img, adminid);
+                if (result != null)
+                {
+                    return this.Ok(new { message = "uploaded ", Response = result });
+                }
+                else
+                {
+                    return this.BadRequest(new { message = "Not uploaded" });
+                }
+            }
+            catch (Exception)
+            {
+                //_logger.LogError(ex.ToString());
+                throw;
+            }
+        }
+
+        [Authorize]
         [HttpGet]
         [Route("Getallbooks")]
         public IActionResult GetAllBook()

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer;
@@ -19,6 +20,7 @@ namespace BookStore.Controllers
             this.cartBL = cartBL;
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Addtocart")]
         public IActionResult AddtoCart(CartModel cart)
@@ -42,6 +44,7 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut]
         [Route("Updatequantity")]
         public IActionResult UpdateCartQty(CartModel edit, string id)
@@ -65,12 +68,14 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete]
         [Route("Deletefromcart")]
         public IActionResult RemovefromCart(string id)
         {
             try
             {
+                string userId = User.Claims.FirstOrDefault(e => e.Type == "UserId").Value;
                 var check = this.cartBL.RemovefromCart(id);
                 if (check != false)
                 {
@@ -87,12 +92,14 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet]
         [Route("Getcart")]
         public IActionResult GetCart()
         {
             try
             {
+                string userId = User.Claims.FirstOrDefault(e => e.Type == "UserId").Value;
                 IEnumerable<CartModel> check = this.cartBL.GetCart();
                 if (check != null)
                 {

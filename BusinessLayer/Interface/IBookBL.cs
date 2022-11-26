@@ -1,4 +1,5 @@
-﻿using ModelLayer;
+﻿using Microsoft.AspNetCore.Http;
+using ModelLayer;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,8 @@ namespace BusinessLayer.Interface
         public IEnumerable<BookModel> GetAllBook();
 
         public BookModel GetByBookId(string id);
+
+        public string UploadImage(string id, IFormFile img, string adminid);
 
     }
 }

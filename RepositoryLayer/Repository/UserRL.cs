@@ -135,10 +135,14 @@ namespace RepositoryLayer.Repository
             {
                 if (password.Equals(confirmPassword))
                 {
-                    var EmailCheck = this.User.AsQueryable().Where(x => x.emailID == Email).SingleOrDefault();
-                    EmailCheck.password = password;
-
-                    //User.SaveChanges();
+                    var EmailCheck = this.User.Find(x => x.emailID == Email).SingleOrDefault();
+                    //return true;
+                    if (EmailCheck != null)
+                    {
+                        EmailCheck.password = password;
+                        this.User.UpdateOne(x => x.emailID == Email, Builders<RegisterModel>.Update.Set(x => x.password, password));
+                        return true;
+                    }
                     return true;
 
                 }

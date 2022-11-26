@@ -103,11 +103,11 @@ namespace BookStore.Controllers
 
                 if (result != null)
                 {
-                    return Ok(new { success = true, message = "REST LINK SEND SUCCESSFULL" });
+                    return Ok(new { success = true, message = "Password Changed SUCCESSFULL" });
                 }
                 else
                 {
-                    return BadRequest(new { success = false, message = "REST LINK SEND FAILED" });
+                    return BadRequest(new { success = false, message = "Password Changed FAILED" });
                 }
 
             }
